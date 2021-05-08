@@ -1,0 +1,29 @@
+<br>
+<div fxLayoutAlign="center center">
+    <hr>
+</div>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Ingreso</mat-card-title>
+        </mat-card-header>
+        <br>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit">
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Nit" formControlName="username">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Contraseña" formControlName="password">
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-stroked-button color="primary" class="btn-block" (click)="validarUsuario()">Ingresar</button>
+            <p>No cuenta con un usuario?
+                <a routerLink="/usuarios-puntos-atencion">Registro</a>
+            </p>
+        </form>
+
+    </mat-card>
+
+</div>

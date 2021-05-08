@@ -1,135 +1,156 @@
 <div class="container app">
-    <div class="row">
-        <div class="col-sm-8">
-            <h1 class="text-center">
-                Sistema de Quejas
-            </h1>
-        </div>
-        <div class="col-sm-4">
-            <div class="alert alert-success alert-dismissable" *ngIf="msg">
-                <a href="#" class="close" (click)="closeAlert()">
-          &times;
-        </a> {{msg}}
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <h1 class="text-center">
+        Registro Solicitudes de Muestras Mèdicas, Laboratorio La Bendiciòn
+      </h1>
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <img width="300" src="https://lh3.googleusercontent.com/qUeDVvNB_lINqCXBpaU-YNrjig-1pHfTnmOM-_REnMtomDaHpvBabYddLPr3X5xnww" />
-        </div>
-        <div class="col-sm-8">
-            <h2>Creacion de Usuarios de puntos de Atencion:</h2>
+    <div class="col-sm-4">
+      <div class="alert alert-success alert-dismissable" *ngIf="msg">
+        <a href="#" class="close" (click)="closeAlert()">
+          &times;
+        </a>
+        {{msg}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <img width="300"
+        src="https://lh3.googleusercontent.com/qUeDVvNB_lINqCXBpaU-YNrjig-1pHfTnmOM-_REnMtomDaHpvBabYddLPr3X5xnww" />
+    </div>
+    <div class="col-sm-8">
+      <h2>Creacion de Usuarios, Laboratorio La Bendiciòn</h2>
 
-            <form class="form-horizontal">
-                <form [formGroup]="userForm" (ngSubmit)="onSubmit">
+      <form class="form-horizontal">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit">
 
-                    <!-- REGION -->
-                    <div class="form-group">
-                        <label for="region" class="control-label col-sm-12">
-              Region
+          <!-- TIPO USUARIO -->
+          <div class="form-group">
+            <label for="region" class="control-label col-sm-12">
+              Tipo Usuario
             </label>
-                        <div class="col-sm-10">
-                            <select class="form-control" formControlName="region">
-                <option selected value="">--Seleccione una región--</option>
+            <div class="col-sm-10">
+              <select class="form-control" formControlName="region">
+                <option selected value="">--Seleccione una Tipo de Usuario--</option>
                 <option *ngFor="let regiones of listaRegiones" [value]="regiones.codigodato">
                   {{regiones.nombre}}
                 </option>
               </select>
-                        </div>
-                    </div>
-                    <!-- PUNTO DE ATENCIÓN -->
-                    <div class="form-group">
-                        <label for="punto" class="control-label col-sm-5">
-              Punto de Atención
+            </div>
+          </div>
+          <!-- ESTADO USUARIO -->
+          <div class="form-group">
+            <label for="punto" class="control-label col-sm-5">
+              Estado Usuario
             </label>
-                        <div class="col-sm-10">
-                            <select class="form-control" formControlName="punto">
-                <option selected value="">--Seleccione un Punto de Atención--</option>
+            <div class="col-sm-10">
+              <select class="form-control" formControlName="punto">
+                <option selected value="">--Seleccione el Estado del Usuario--</option>
                 <option *ngFor="let punto of listaPuntos" [value]="punto.id">
                   {{punto.nombre}}
                 </option>
               </select>
-                        </div>
-                    </div>
-                    <!-- DPI -->
-                    <div class="form-group">
-                        <label for="dpi" class="control-label col-sm-2">
-              DPI
+            </div>
+          </div>
+          <!-- CUI -->
+          <div class="form-group">
+            <label for="dpi" class="control-label col-sm-2">
+              CUI
             </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="dpi" name="dpi" formControlName="dpi" placeholder="Ingrese su código único de identificación">
-                        </div>
-                    </div>
-                    <!-- PRIMER NOMBRE -->
-                    <div class="form-group">
-                        <label for="primerNombre" class="control-label col-sm-5">
-              Primer Nombre
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="dpi" name="dpi" formControlName="dpi"
+                placeholder="Ingrese su código único de identificación">
+            </div>
+          </div>
+          <!-- NIT -->
+          <div class="form-group">
+            <label for="primerNombre" class="control-label col-sm-5">
+              NIT
             </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="primerNombre" name="primerNombre" formControlName="primerNombre" placeholder="Ingrese su primer nombre">
-                        </div>
-                    </div>
-                    <!-- SEGUNDO NOMBRE -->
-                    <div class="form-group">
-                        <label for="segundoNombre" class="control-label col-sm-5">
-              Segundo Nombre
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="primerNombre" name="primerNombre"
+                formControlName="primerNombre" placeholder="Ingrese su NIT">
+            </div>
+          </div>
+          <!-- NOMBRE COMPLETO -->
+          <div class="form-group">
+            <label for="segundoNombre" class="control-label col-sm-5">
+              Nombre Completo
             </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="segundoNombre" name="segundoNombre" formControlName="segundoNombre" placeholder="Ingrese su segundo nombre">
-                        </div>
-                    </div>
-                    <!-- PRIMER APELLIDO -->
-                    <div class="form-group">
-                        <label for="primerApellido" class="control-label col-sm-5">
-              Primer Apellido
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="segundoNombre" name="segundoNombre"
+                formControlName="segundoNombre" placeholder="Ingrese su Nombre Completo">
+            </div>
+          </div>
+          <!-- CONTRASEÑA -->
+          <div class="form-group">
+            <label for="primerApellido" class="control-label col-sm-5">
+              Contraseña
             </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="primerApellido" name="primerApellido" formControlName="primerApellido" placeholder="Ingrese su primer apellido">
-                        </div>
-                    </div>
-                    <!-- SEGUNDO APELLIDO -->
-                    <div class="form-group">
-                        <label for="segundoApellido" class="control-label col-sm-5">
-              Segundo Nombre
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="primerApellido" name="primerApellido"
+                formControlName="primerApellido" placeholder="Ingrese una Contraseña">
+            </div>
+          </div>
+          <!-- TELEFONO -->
+          <div class="form-group">
+            <label for="segundoApellido" class="control-label col-sm-5">
+              Telefono
             </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="segundoApellido" name="segundoApellido" formControlName="segundoApellido" placeholder="Ingrese su segundo nombre">
-                        </div>
-                    </div>
-                    <!-- EMAIL -->
-                    <div class="form-group">
-                        <label for="email" class="control-label col-sm-5">
-              Email
-            </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="email" name="email" formControlName="email" placeholder="Ingrese su email">
-                        </div>
-                    </div>
-                    <!-- CARGO -->
-                    <div class="form-group">
-                        <label for="cargo" class="control-label col-sm-2">
-              Cargo
-            </label>
-                        <div class="col-sm-10">
-                            <select class="form-control" formControlName="cargo">
-                <option selected value="">--Seleccione un cargo--</option>
-                <option *ngFor="let cargo of listaCargos" [value]="cargo.codigodato">
-                  {{cargo.nombre}}
-                </option>
-              </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-10 col-sm-offset-2">
-                            <button type="submit" [disabled]="userForm.invalid" class="btn btn-success" (click)="saveUser()">
-                Guardar
-              </button>
-                        </div>
-                    </div>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="segundoApellido" name="segundoApellido"
+                formControlName="segundoApellido" placeholder="Ingrese su numero de Telefono">
+            </div>
+          </div>
 
-                </form>
-            </form>
-            <!--    <div class="form-group">
+          <!-- DIRECCION -->
+          <div class="form-group">
+            <label for="direccion-usuario" class="control-label col-sm-5">
+              Direccion
+            </label>
+            <div class="col-sm-10">
+            <input _ngcontent-ote-c271="" type="text" id="direccion-usuario" name="direccion-usuario"
+              formcontrolname="direccion-usuario" placeholder="Ingrese su direccion"
+              class="form-control ng-untouched ng-pristine ng-invalid" ng-reflect-name="direccion-usuario" style="margin-top: 10px;">
+  </div>
+</div>
+<!--fecha de nacimiento-->
+<div class="form-group">
+  <label for="fecha-de-nacimiento" class="control-label col-sm-5">
+    Ingrese su fecha de nacimiento
+  </label>
+<div _ngcontent-mjp-c271="" class="col-sm-10">
+  <input _ngcontent-mjp-c271="" _ngcontent-ote-c271="" type="date"
+    id="fecha-de-nacimiento" name="fecha-de-nacimiento" formcontrolname="direccion-usuario"
+    placeholder="Ingrese su fecha-de-nacimiento" ng-reflect-name="fecha-de-nacimiento"
+    class="form-control ng-untouched ng-pristine ng-invalid" style="margin-top: 10px;">
+  </div>
+</div>
+
+
+            <!-- EMAIL -->
+            <div class="form-group">
+              <label for="email" class="control-label col-sm-5">
+                Email
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="email" name="email" formControlName="email"
+                  placeholder="Ingrese su email">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="col-sm-10 col-sm-offset-2">
+                <button type="submit" [disabled]="userForm.invalid" class="btn btn-success" (click)="saveUser()">
+                  Guardar
+                </button>
+              </div>
+            </div>
+
+        </form>
+      </form>
+      <!--    <div class="form-group">
           <label for="region" class="control-label col-sm-2">
             Region
           </label>
@@ -253,65 +274,69 @@
           </div>
         </div>
       </form> -->
-        </div>
     </div>
-    <div class="row">
-        <div class="table-responsive">
-            <h2>Datos de Usuarios: </h2>
-            <table class="table">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Id</th>
-                        <th>Punto de Atención</th>
-                        <th>DPI</th>
-                        <th>Primer Nombre</th>
-                        <th>Primer Apellido</th>
-                        <th>Correo del Usuario</th>
-                        <th>Cargo del Usuario</th>
-                        <th>Estado</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let employee of employees | paginate: {itemsPerPage: 5, currentPage: pageActual}; let i = index">
-                        <td>{{employee.id}}</td>
-                        <td>{{employee.punto}}</td>
-                        <td>{{employee.dpi}}</td>
-                        <td>{{employee.primer_nombre}}</td>
-                        <td>{{employee.primer_apellido}}</td>
-                        <td>{{employee.email}}</td>
-                        <td>{{employee.cargo}}</td>
-                        <td>{{employee.estado}}</td>
-                        <td>
-                            <!--  <a (click)="editEmployee(i)" class="btn btn-success">
+  </div>
+  <div class="row">
+    <div class="table-responsive">
+      <h2>Datos de Usuarios: </h2>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>Id</th>
+            <th>Tipo de Usuario</th>
+            <th>Estado Usuario</th>
+            <th>CUI</th>
+            <th>NIT</th>
+            <th>Nombre Completo</th>
+            <th>Telefono</th>
+            <th>Dirección</th>
+            <th>Correo</th>            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees | paginate: {itemsPerPage: 5, currentPage: pageActual}; let i = index">
+            <td>{{employee.id}}</td>
+            <td>{{employee.punto}}</td>
+            <td>{{employee.dpi}}</td>
+            <td>{{employee.primer_nombre}}</td>
+            <td>{{employee.primer_apellido}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.cargo}}</td>
+            <td>{{employee.estado}}</td>
+            <td>
+              <!--  <a (click)="editEmployee(i)" class="btn btn-success">
                 Actualizar
               </a> -->
-                            <div class="col-sm-12">
-                                <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
 
-                                    <div class="col-sm-1">
-                                        <button style='width:85px; height:35px' (click)="editEmployee(i)" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Editar</button>
-                                        <br>
-                                        <button style='width:85px; height:35px' (click)="deleteEmployee(i)" type="button" class="btn btn-danger">Eliminar</button>
+                  <div class="col-sm-1">
+                    <button style='width:85px; height:35px' (click)="editEmployee(i)" type="button"
+                      class="btn btn-success" data-toggle="modal" data-target="#exampleModal"
+                      data-whatever="@getbootstrap">Editar</button>
+                    <br>
+                    <button style='width:85px; height:35px' (click)="deleteEmployee(i)" type="button"
+                      class="btn btn-danger">Eliminar</button>
 
-                                    </div>
+                  </div>
 
 
-                                </div>
-                            </div>
-                            <!--  <a (click)="deleteEmployee(i)" class="btn btn-danger">
+                </div>
+              </div>
+              <!--  <a (click)="deleteEmployee(i)" class="btn btn-danger">
                 Eliminar
               </a>
-            --></td>
-                    </tr>
+            -->
+            </td>
+          </tr>
 
-                </tbody>
-            </table>
-            <pagination-controls (pageChange)="pageActual= $event"></pagination-controls>
-        </div>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="pageActual= $event"></pagination-controls>
+    </div>
 
-        <div class="col-sm-4" [hidden]="hideUpdate">
-            <!--  <form class="form-horizontal">
+    <div class="col-sm-4" [hidden]="hideUpdate">
+      <!--  <form class="form-horizontal">
 
 
 
@@ -362,71 +387,75 @@
           </div>
         </div>
       </form> -->
-        </div>
     </div>
-    <div class="row">
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  </div>
+  <div class="row">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-                        <h2>Modificar Usuario</h2>
-                        <div class="col-sm-12">
+            <h2>Modificar Usuario</h2>
+            <div class="col-sm-12">
 
 
-                            <form class="form-horizontal">
-                                <form [formGroup]="userFormUpdate" (ngSubmit)="onSubmit">
+              <form class="form-horizontal">
+                <form [formGroup]="userFormUpdate" (ngSubmit)="onSubmit">
 
-                                    <!-- REGION -->
-                                    <div class="form-group">
-                                        <label for="region" class="control-label col-sm-12">
-              Estado
-            </label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control" formControlName="estado">
-                <option selected value=''>--Seleccione un estado--</option>
-                <option *ngFor="let estado of listaEstados" [value]="estado.codigodato">
-                  {{estado.nombre}}
-                </option>
-              </select>
-                                        </div>
-                                    </div>
-                                    <!-- EMAIL -->
-                                    <div class="form-group">
-                                        <label for="email" class="control-label col-sm-12">
-              Email
-            </label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="correo" name="correo" formControlName="correo" placeholder="">
-                                        </div>
-                                    </div>
-                                    <!-- CARGO -->
-                                    <div class="form-group">
-                                        <label for="cargo" class="control-label col-sm-12">
-              Cargo
-            </label>
-                                        <div class="col-sm-10">
-                                            <select class="form-control" formControlName="cargo">
-                <option selected value="">--Seleccione un cargo--</option>
-                <option *ngFor="let cargo of listaCargos" [value]="cargo.codigodato">
-                  {{cargo.nombre}}
-                </option>
-              </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
+                  <!-- REGION -->
+                  <div class="form-group">
+                    <label for="region" class="control-label col-sm-12">
+                      Estado
+                    </label>
+                    <div class="col-sm-12">
+                      <select class="form-control" formControlName="estado">
+                        <option selected value=''>--Seleccione un estado--</option>
+                        <option *ngFor="let estado of listaEstados" [value]="estado.codigodato">
+                          {{estado.nombre}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- EMAIL -->
+                  <div class="form-group">
+                    <label for="email" class="control-label col-sm-12">
+                      Email
+                    </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="correo" name="correo" formControlName="correo"
+                        placeholder="">
+                    </div>
+                  </div>
+                  <!-- CARGO -->
+                  <div class="form-group">
+                    <label for="cargo" class="control-label col-sm-12">
+                      Cargo
+                    </label>
+                    <div class="col-sm-10">
+                      <select class="form-control" formControlName="cargo">
+                        <option selected value="">--Seleccione un cargo--</option>
+                        <option *ngFor="let cargo of listaCargos" [value]="cargo.codigodato">
+                          {{cargo.nombre}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" (click)="clean2()" data-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-primary" (click)="updateEmployee()" data-dismiss="modal">Guardar</button>
-                                        </div>
-                                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="clean2()"
+                        data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-primary" (click)="updateEmployee()"
+                        data-dismiss="modal">Guardar</button>
+                    </div>
+                  </div>
 
-                                </form>
-                            </form>
-                            <!-- <form [formGroup]="userFormUpdate" (ngSubmit)="onSubmit">
+                </form>
+              </form>
+              <!-- <form [formGroup]="userFormUpdate" (ngSubmit)="onSubmit">
               <div class="form-group">
                 <label for="estado" class="control-label col-sm-12">
                   Estado
@@ -465,11 +494,11 @@
 
             </form> -->
 
-                        </div>
-                    </div>
-
-                </div>
             </div>
+          </div>
+
         </div>
+      </div>
     </div>
+  </div>
 </div>

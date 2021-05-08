@@ -24,7 +24,7 @@
                               formControlName="recaptchaReactive"
                               siteKey="6LfNP_gUAAAAAFLGCTcDEH6aUWrvOxKG5VhpTVav">
                   </re-captcha>
-                  <p>Gracias por usar los servicios de modernización <br/> -Banco Mi Pistio </p>
+                  <p>Gracias por usar los servicios de modernización <br/> -Laboratorio Medico La Bendicion </p>
                   <button type="button" #closebutton class="close" data-dismiss="modal"> </button>
               </div>
             </div>
@@ -67,17 +67,79 @@
         <form [formGroup]="principalForm">
 
 
+             <!-- Nit -->
+          <div class="form-group">
+            <label> Nit (*) </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  formControlName="nombre"
+                placeholder="Ingrese su nit">
+            </div>
+          </div>
+
+
+
+          <div class="form-group" id="btn-buscar" style="display: flex; justify-content: center;">
+          <button type="button" class="btn btn-success">Buscar</button>
+        </div>
             <!-- NOMBRE -->
           <div class="form-group">
-            <label> NOMBRE(*) </label>
+            <label> Nombre(*) </label>
             <div class="col-sm-10">
               <input type="text" class="form-control"  formControlName="nombre"
                 placeholder="Ingrese su nombre">
             </div>
           </div>
+          <div _ngcontent-yqk-c277="" class="form-group">
+            <label _ngcontent-yqk-c277=""> Fecha de nacimiento </label>
+            <div _ngcontent-yqk-c277="" class="col-sm-10">
+              <input _ngcontent-yqk-c277="" type="date" formcontrolname=" Fecha-de-nacimiento"
+                placeholder="Ingrese su fecha de nacimiento" class="form-control" ng-reflect-name="Fecha-de-nacimiento">
+              </div>
+          </div>
+
+          <!--tipos de sangre--->
+          <div _ngcontent-upv-c277="" class="form-group">
+            <label _ngcontent-upv-c277="" for="tipo-de-sangre"
+              class="control-label col-sm-12"> Seleccione el tipo de sangre </label>
+            <div _ngcontent-upv-c277="" class="col-sm-10">
+              <select _ngcontent-upv-c277="" formcontrolname="seleccione su tipo de sangre"
+                class="form-control ng-pristine ng-valid ng-touched" ng-reflect-name="tipo-de-sangre">
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--O negativo--</option>
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--O positivo--</option>
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--A negativo--</option>
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--A positivo--</option>
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--B negativo--</option>
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--B positivo--</option>
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--AB negativo--</option>
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--AB positivo--</option>
+                <option _ngcontent-upv-c277="" selected="" value="" ng-reflect-value="">--Desconocido--</option>
+                <!--bindings={
+                      "ng-reflect-ng-for-of": ""
+                    }-->
+              </select></div>
+          </div>
+          <!--fin tipos de sangre-->
+          <div _ngcontent-mir-c277="" class="form-group">
+            <label _ngcontent-mir-c277="" for="genero"
+              class="control-label col-sm-12"> Seleccione su Genero </label>
+            <div _ngcontent-mir-c277="" class="col-sm-10">
+              <select _ngcontent-mir-c277="" formcontrolname="genero"
+                class="form-control ng-pristine ng-valid ng-touched" ng-reflect-name="genero">
+                <option _ngcontent-mir-c277="" selected="" value="" ng-reflect-value="">--Masculino--</option>
+                <option _ngcontent-mir-c277="" selected="" value="" ng-reflect-value="">--Femenino--</option>
+                <!--bindings={
+                      "ng-reflect-ng-for-of": ""
+                    }-->
+              </select></div>
+          </div>
+          <!--genero-->
+
+          <!--fin genero-->
+              
+
               <!-- CORREO -->
               <div class="form-group">
-                <label> CORREO(*) </label>
+                <label> Correo(*) </label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control"  formControlName="correo"
                     placeholder="Ingrese su correo electronico">
@@ -86,21 +148,25 @@
 
                 <!-- TELEFONO -->
               <div class="form-group">
-                <label> TELEFONO(*) </label>
+                <label> Telefono(*) </label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control"  formControlName="telefono"
                     placeholder="Ingrese su telefono">
                 </div>
               </div>
 
-              <!-- PUNTOS DE ATENCIÓN-->
+              <!-- ESTADO CIVIL-->
             <div  class="form-group">
               <label for="medioIngreso" class="control-label col-sm-12">
-                OFICINA / AGENCIA
+                Estado Civil
               </label>
               <div class="col-sm-10">
                 <select class="form-control" formControlName="agencia">
-                  <option selected value="">--Seleccione una oficina de ingreso--</option>
+                  <option _ngcontent-mir-c277="" selected="" value="" ng-reflect-value=""> Soltero/a </option>
+                  <option _ngcontent-mir-c277="" selected="" value="" ng-reflect-value=""> Casado/a </option>
+                  <option _ngcontent-mir-c277="" selected="" value="" ng-reflect-value=""> Union de echo </option>
+                  <option _ngcontent-mir-c277="" selected="" value="" ng-reflect-value=""> Divorciado </option>
+                  <option _ngcontent-mir-c277="" selected="" value="" ng-reflect-value=""> Viudad </option>
                   <option *ngFor="let puntos of listaPuntosAtencion" [value]="puntos.id">
                     {{puntos.nombre}}
                   </option>
@@ -108,41 +174,26 @@
               </div>
             </div>
 
-             <!-- USUARIOS-->
-             <div  class="form-group">
-              <label for="medioIngreso" class="control-label col-sm-12">
-                NOMBRE  DEL EMPLEADO
-              </label>
-              <div class="col-sm-10">
-                <select class="form-control" formControlName="usuario">
-                  <option selected value="">--Seleccione un usuario--</option>
-                  <option *ngFor="let usuario of listaUsuarios" [value]="usuario.codigopuntoasignado">
-                    {{usuario.primernombre}} {{usuario.segundonombre}}
-                     {{usuario.primerapellido}} {{usuario.segundopellido}}
-                  </option>
-                </select>
-              </div>
-            </div>
+          
 
               <!-- DETALLE -->
               <div class="form-group">
-                <label> DETALLE DE LA QUEJA(*) </label>
+                <label> Alergia (*) </label>
                 <div class="col-sm-10">
           <!--         <input type="text" class="form-control"  formControlName="usuario"
                     placeholder="Ingrese el detalle de la queja"> -->
-                   <textarea  placeholder="Ingrese el detalle de la queja" class="form-control"  formControlName="detalle" rows="3"></textarea>
+                   <textarea  placeholder="Ingrese el detalle de la alergia" class="form-control"  formControlName="detalle" rows="3"></textarea>
                </div>
               </div>
 
-              <div class="form-group">
-                <label> ADJUNTAR DOCUMENTO </label>
-                <div class="col-sm-10">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" multiple formControlName="importFile" id="importFile" (change)="onFileChange($event.target.files)">
-                                  <label class="custom-file-label" #labelImport for="importFile"><i class="fas fa-search"></i> Choose file</label>
-                  </div>
-                </div>
+            <!-- TELEFONO -->
+            <div class="form-group">
+              <label> En caso de emergencia contactar a(*) </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  formControlName="telefono"
+                  placeholder="Ingrese su telefono">
               </div>
+            </div>
 
 
 
@@ -176,21 +227,25 @@
 
   <div class="row">
     <div class="table-responsive">
-      <h2>Tipos de quejas: </h2>
+      <h2>Tipos de expediente </h2>
       <table class="table">
         <thead class="thead-light">
           <tr>
             <th>Id</th>
            <!--  <th>Codigo Queja</th> -->
-            <th>Estado</th>
-            <th>Fecha Ingreso</th>
-            <th> Medio Ingreso</th>
-            <th> Usaurio Asignado</th>
-            <th>Correo Electronico</th>
-            <th>Detalle Queja</th>
+            <th>Nit</th>
+            <th>Nombre</th>
+            <th> Fecha De Nacimiento</th>
+            <th> Tipo de Sangre</th>
+            <th>Genero</th>
+            <th>Correo</th>
             <th>Telefono</th>
-            <th>ESTADO INTERNO</th>
-            <th>ESTADO EXTERNO</th>
+            <th>Estado Civil</th>
+            <th>Alergia</th>
+            <th>Numero de Emegencia</th>
+            
+
+
           </tr>
         </thead>
         <tbody>
